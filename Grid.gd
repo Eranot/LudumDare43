@@ -27,6 +27,7 @@ func _ready():
 			grid[x].append(null);
 	
 	add_new_object(player, 1, 1, ENTITY_TYPES.PLAYER);
+	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE);
 
 
 func _draw():
@@ -38,7 +39,7 @@ func _draw():
 
 
 func add_new_object(new_object, pos_x, pos_y, type):
-	if(grid[pos_x][pos_y] == null):
+	if(cell_is_empty(pos_x,pos_y)):
 		var new_instance = new_object.instance();
 		new_instance.position = Vector2(pos_x * tile_size.x + half_tile_size.x, pos_y * tile_size.y + half_tile_size.y);
 		grid[pos_x][pos_y] = type;
@@ -46,3 +47,8 @@ func add_new_object(new_object, pos_x, pos_y, type):
 		new_instance.grid_pos_x = pos_x;
 		new_instance.grid_pos_y = pos_y;
 
+func cell_is_empty(pos_x, pos_y):
+	if(grid[pos_x][pos_y] == null):
+		return true;
+	else:
+		return false;
