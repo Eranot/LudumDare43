@@ -9,7 +9,7 @@ func _ready():
 	print(grid_pos_x);
 	print(grid_pos_y);
 	
-	print(get_node("Grid").grid);
+	#print(get_node("Grid").grid);
 
 func _physics_process(delta):
 	if(timer_destroy >= 60):

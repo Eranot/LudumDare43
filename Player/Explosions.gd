@@ -2,19 +2,11 @@ extends Node
 
 var explosion_obj = preload("res://Player/Explosion.tscn");
 
-#var pos_x;
-#var pos_y;
-#var tile_size;
 var half_tile_size;
 
 var new_instance;
 
 func explode(type, grid_pos_x, grid_pos_y, tile_size):
-	
-	#pos_x = grid_pos_x;
-	#pos_y = grid_pos_y;
-	#tile_size = Vector2(tile_size.x, tile_size.y);
-	#print(tile_size)
 	half_tile_size = tile_size / 2;
 	
 	if(type == "cross"):
