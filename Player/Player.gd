@@ -11,10 +11,9 @@ var explosions = load("res://Player/Explosions.gd").new();
 
 var explosion_type = "cross";
 
-var explosion_size = 1;
-
 func _ready():
 	tile_size = get_parent().tile_size;
+	$AnimatedSprite.play("default");
 
 func _physics_process(delta):
 	direction = dir.CENTER;
@@ -56,5 +55,6 @@ func move_player():
 			position.y += direction.y * tile_size.y;
 
 func self_destroy():
-	explosions.explode(explosion_size, grid_pos_x, grid_pos_y, explosion_type);
-	queue_free();
+	explosions.explode(explosion_type);
+	#queue_free();
+	
