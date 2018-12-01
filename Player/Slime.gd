@@ -63,5 +63,5 @@ func move_player():
 
 func self_destroy():
 	Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
-	#queue_free();
+	queue_free();
 	

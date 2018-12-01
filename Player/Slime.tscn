@@ -1,12 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Player/Slime.gd" type="Script" id=1]
 [ext_resource path="res://Player/Slimes/slime_verde_anim1.png" type="Texture" id=2]
 [ext_resource path="res://Player/Slimes/slime_verde_anim2.png" type="Texture" id=3]
 [ext_resource path="res://Player/Slimes/slime_verde_anim3.png" type="Texture" id=4]
 [ext_resource path="res://Player/Slimes/slime_verde_anim4.png" type="Texture" id=5]
 [ext_resource path="res://Player/Slimes/slime_verde_anim5.png" type="Texture" id=6]
 [ext_resource path="res://Player/Slimes/slime_verde_anim6.png" type="Texture" id=7]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,7 +23,7 @@ animations = [ {
 "speed": 4.99
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Slime" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1

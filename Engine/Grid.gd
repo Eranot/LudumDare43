@@ -8,7 +8,7 @@ var grid = [];
 
 var screensize;
 
-export (PackedScene) var player;
+export (PackedScene) var slime;
 export (PackedScene) var obstacle;
 
 enum ENTITY_TYPES{
@@ -26,7 +26,7 @@ func _ready():
 		for y in range(grid_size.y):
 			grid[x].append(null);
 	
-	add_new_object(player, 1, 1, ENTITY_TYPES.PLAYER);
+	add_new_object(slime, 1, 1, ENTITY_TYPES.PLAYER);
 	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE);
 
 

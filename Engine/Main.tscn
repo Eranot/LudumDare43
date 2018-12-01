@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Engine/Grid.gd" type="Script" id=1]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Slime.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Obstacles/Obstacle.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node" index="0"]
@@ -27,7 +27,7 @@ format = 1
 tile_data = PoolIntArray(  )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Cell" ]
-player = ExtResource( 2 )
+slime = ExtResource( 2 )
 obstacle = ExtResource( 3 )
 
 
