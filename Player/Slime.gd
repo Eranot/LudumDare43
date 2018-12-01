@@ -5,6 +5,7 @@ var direction = Vector2();
 const OBJ_TYPE = "PLAYER";
 
 var SELECTED = false;
+var HOVERED = false;
 
 var tile_size;
 
@@ -18,6 +19,13 @@ func _ready():
 	$AnimatedSprite.play("default");
 
 func _physics_process(delta):
+	
+	if(Input.is_action_just_pressed("ui_mouse_left")):
+		if(HOVERED):
+			SELECTED = true;
+		else:
+			SELECTED = false;
+			
 	direction = dir.CENTER;
 	if(SELECTED):
 		if(Input.is_action_just_pressed("ui_select")):
@@ -65,3 +73,10 @@ func self_destroy():
 	Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
 	queue_free();
 	
+
+func _on_Slime_mouse_entered():
+	HOVERED = true;
+
+
+func _on_Slime_mouse_exited():
+	HOVERED = false;
