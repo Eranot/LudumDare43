@@ -4,10 +4,11 @@ var direction = Vector2();
 
 var tile_size = 64;
 
-var velocity;
+var grid_pos_x;
+var grid_pos_y;
 
 func _ready():
-	
+	print(grid_pos_x);
 	pass
 
 func _physics_process(delta):
@@ -27,3 +28,6 @@ func move_player():
 	
 	position.x += direction.x * tile_size;
 	position.y += direction.y * tile_size;
+	
+func print_test():
+	print("teste");

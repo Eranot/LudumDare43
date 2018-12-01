@@ -17,3 +17,5 @@
 		grid[pos.x][pos.y] = ENTITY_TYPES.OBSTACLE;
 		
 		add_child(new_obstacle);
+		
+	
