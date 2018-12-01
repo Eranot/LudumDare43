@@ -65,7 +65,11 @@ func add_new_object(new_instance, pos_x, pos_y, type):
 
 func selectObject(object):
 	for obj in allObjects:
-		obj.SELECTED = object == obj
+		
+		if(weakref(obj).get_ref()):
+			obj.SELECTED = object == obj
+		else:
+			allObjects.erase(obj)
 
 func cell_is_empty(pos_x, pos_y):
 	if(grid[pos_x][pos_y] == null):
