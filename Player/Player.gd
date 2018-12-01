@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends KinematicBody2D;
 
 var direction = Vector2();
 
@@ -7,11 +7,20 @@ var tile_size;
 var grid_pos_x;
 var grid_pos_y;
 
+var explosions = load("res://Player/Explosions.gd").new();
+
+var explosion_type = "cross";
+
+var explosion_size = 1;
+
 func _ready():
 	tile_size = get_parent().tile_size;
 
 func _physics_process(delta):
 	direction = dir.CENTER;
+	
+	if(Input.is_action_just_pressed("ui_select")):
+		self_destroy();
 	
 	if(Input.is_action_just_pressed("ui_up")):
 		direction = dir.UP;
@@ -38,11 +47,14 @@ func move_player():
 	if(direction == dir.LEFT):
 		new_grid_pos_x -= 1;
 	
-	if(get_parent().cell_is_empty(new_grid_pos_x, new_grid_pos_y) 
-	&& get_parent().cell_exists(new_grid_pos_x,new_grid_pos_y)):
-		grid_pos_x = new_grid_pos_x;
-		grid_pos_y = new_grid_pos_y;
-		
-		position.x += direction.x * tile_size.x;
-		position.y += direction.y * tile_size.y;
+	if(get_parent().cell_exists(new_grid_pos_x,new_grid_pos_y)):
+		if(get_parent().cell_is_empty(new_grid_pos_x, new_grid_pos_y)):
+			grid_pos_x = new_grid_pos_x;
+			grid_pos_y = new_grid_pos_y;
+			
+			position.x += direction.x * tile_size.x;
+			position.y += direction.y * tile_size.y;
 
+func self_destroy():
+	explosions.explode(explosion_size, grid_pos_x, grid_pos_y, explosion_type);
+	queue_free();

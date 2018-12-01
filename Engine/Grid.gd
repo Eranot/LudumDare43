@@ -39,13 +39,14 @@ func _draw():
 
 
 func add_new_object(new_object, pos_x, pos_y, type):
-	if(cell_is_empty(pos_x,pos_y) && cell_exists(pos_x,pos_y)):
-		var new_instance = new_object.instance();
-		new_instance.position = Vector2(pos_x * tile_size.x + half_tile_size.x, pos_y * tile_size.y + half_tile_size.y);
-		grid[pos_x][pos_y] = type;
-		call_deferred("add_child", new_instance);
-		new_instance.grid_pos_x = pos_x;
-		new_instance.grid_pos_y = pos_y;
+	if(cell_exists(pos_x,pos_y)):
+		if(cell_is_empty(pos_x,pos_y)):
+			var new_instance = new_object.instance();
+			new_instance.position = Vector2(pos_x * tile_size.x + half_tile_size.x, pos_y * tile_size.y + half_tile_size.y);
+			grid[pos_x][pos_y] = type;
+			call_deferred("add_child", new_instance);
+			new_instance.grid_pos_x = pos_x;
+			new_instance.grid_pos_y = pos_y;
 
 func cell_is_empty(pos_x, pos_y):
 	if(grid[pos_x][pos_y] == null):
