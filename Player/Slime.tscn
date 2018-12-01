@@ -8,7 +8,6 @@
 [ext_resource path="res://Player/Slimes/slime_verde_anim5.png" type="Texture" id=6]
 [ext_resource path="res://Player/Slimes/slime_verde_anim6.png" type="Texture" id=7]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -23,7 +22,7 @@ animations = [ {
 "speed": 4.99
 } ]
 
-[node name="Slime" type="KinematicBody2D" index="0"]
+[node name="Slime" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1

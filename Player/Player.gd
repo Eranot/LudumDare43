@@ -1,4 +1,4 @@
-extends KinematicBody2D;
+extends KinematicBody2D
 
 var direction = Vector2();
 
@@ -11,8 +11,6 @@ var tile_size;
 var grid_pos_x;
 var grid_pos_y;
 
-var explosion_type = "cross";
-
 func _ready():
 	tile_size = get_parent().tile_size;
 	$AnimatedSprite.play("default");
@@ -20,9 +18,6 @@ func _ready():
 func _physics_process(delta):
 	direction = dir.CENTER;
 	if(SELECTED):
-		if(Input.is_action_just_pressed("ui_select")):
-			self_destroy();
-		
 		if(Input.is_action_just_pressed("ui_up")):
 			direction = dir.UP;
 		if(Input.is_action_just_pressed("ui_down")):
@@ -60,8 +55,3 @@ func move_player():
 			
 			position.x += direction.x * tile_size.x;
 			position.y += direction.y * tile_size.y;
-
-func self_destroy():
-	Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
-	queue_free();
-	
