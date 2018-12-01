@@ -39,7 +39,7 @@ func _draw():
 
 
 func add_new_object(new_object, pos_x, pos_y, type):
-	if(cell_is_empty(pos_x,pos_y)):
+	if(cell_is_empty(pos_x,pos_y) && cell_exists(pos_x,pos_y)):
 		var new_instance = new_object.instance();
 		new_instance.position = Vector2(pos_x * tile_size.x + half_tile_size.x, pos_y * tile_size.y + half_tile_size.y);
 		grid[pos_x][pos_y] = type;
@@ -49,6 +49,12 @@ func add_new_object(new_object, pos_x, pos_y, type):
 
 func cell_is_empty(pos_x, pos_y):
 	if(grid[pos_x][pos_y] == null):
+		return true;
+	else:
+		return false;
+
+func cell_exists(pos_x, pos_y):
+	if(pos_x >= 0 && pos_x < grid_size.x && pos_y >= 0 && pos_y < grid_size.y):
 		return true;
 	else:
 		return false;
