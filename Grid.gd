@@ -27,7 +27,6 @@ func _ready():
 			grid[x].append(null);
 	
 	add_new_object(player, 1, 1, ENTITY_TYPES.PLAYER);
-	add_new_object(obstacle, 5, 5, ENTITY_TYPES.PLAYER);
 
 
 func _draw():
@@ -43,8 +42,7 @@ func add_new_object(new_object, pos_x, pos_y, type):
 		var new_instance = new_object.instance();
 		new_instance.position = Vector2(pos_x * tile_size.x + half_tile_size.x, pos_y * tile_size.y + half_tile_size.y);
 		grid[pos_x][pos_y] = type;
-		add_child(new_instance);
-		new_instance.call("print_test");
-		#print(new_instance);
-		#get_children()[get_child_count()-1].print_test();
+		call_deferred("add_child", new_instance);
+		new_instance.grid_pos_x = pos_x;
+		new_instance.grid_pos_y = pos_y;
 
