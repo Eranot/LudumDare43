@@ -2,6 +2,8 @@ extends KinematicBody2D;
 
 var direction = Vector2();
 
+const OBJ_TYPE = "PLAYER";
+
 var tile_size;
 
 var grid_pos_x;
@@ -48,8 +50,13 @@ func move_player():
 	
 	if(get_parent().cell_exists(new_grid_pos_x,new_grid_pos_y)):
 		if(get_parent().cell_is_empty(new_grid_pos_x, new_grid_pos_y)):
+			
+			get_parent().grid[grid_pos_x][grid_pos_y] = null;
+			
 			grid_pos_x = new_grid_pos_x;
 			grid_pos_y = new_grid_pos_y;
+			
+			get_parent().grid[grid_pos_x][grid_pos_y] = get_parent().ENTITY_TYPES.PLAYER;
 			
 			position.x += direction.x * tile_size.x;
 			position.y += direction.y * tile_size.y;
