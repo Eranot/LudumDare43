@@ -7,7 +7,7 @@ var tile_size;
 var grid_pos_x;
 var grid_pos_y;
 
-var explosions = load("res://Player/Explosions.gd").new();
+#var explosions = load("res://Player/Explosions.gd").new();
 
 var explosion_type = "cross";
 
@@ -55,6 +55,6 @@ func move_player():
 			position.y += direction.y * tile_size.y;
 
 func self_destroy():
-	explosions.explode(explosion_type);
+	Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
 	#queue_free();
 	

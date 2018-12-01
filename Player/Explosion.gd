@@ -1,13 +1,18 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var grid_pos_x;
+var grid_pos_y;
+
+var timer_destroy = 0;
 
 func _ready():
-	print("Expl")
+	print(grid_pos_x);
+	print(grid_pos_y);
+	
+	print(get_node("Grid").grid);
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _physics_process(delta):
+	if(timer_destroy >= 60):
+		queue_free();
+	
+	timer_destroy += 1;
