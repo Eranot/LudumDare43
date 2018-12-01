@@ -20,11 +20,6 @@ func _ready():
 
 func _physics_process(delta):
 	
-	if(Input.is_action_just_pressed("ui_mouse_left")):
-		if(HOVERED):
-			SELECTED = true;
-		else:
-			SELECTED = false;
 			
 	direction = dir.CENTER;
 	if(SELECTED):
@@ -80,3 +75,6 @@ func _on_Slime_mouse_entered():
 
 func _on_Slime_mouse_exited():
 	HOVERED = false;
+
+func isHovered():
+	return HOVERED

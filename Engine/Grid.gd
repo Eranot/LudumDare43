@@ -18,6 +18,7 @@ enum ENTITY_TYPES{
 	COLLECTIBLE
 }
 
+var allObjects = []
 
 func _ready():
 	screensize = get_viewport_rect().size;
@@ -27,9 +28,17 @@ func _ready():
 		for y in range(grid_size.y):
 			grid[x].append(null);
 	
-	add_new_object(player, 1, 1, ENTITY_TYPES.PLAYER);
-	add_new_object(slime, 1, 2, ENTITY_TYPES.PLAYER);
-	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE);
+	var _player = player.instance()
+	var _slime = slime.instance()
+	
+	add_new_object(_player, 1, 1, ENTITY_TYPES.PLAYER);
+	add_new_object(_slime, 1, 2, ENTITY_TYPES.PLAYER);
+	add_new_object(obstacle.instance(), 3, 3, ENTITY_TYPES.OBSTACLE);
+	
+	allObjects.append(_player)
+	allObjects.append(_slime)
+	
+	selectObject(_player)
 
 
 func _draw():
@@ -39,16 +48,24 @@ func _draw():
 	for y in range(grid_size.y):
 		draw_line(Vector2(y * tile_size.y, 0), Vector2(y * tile_size.y, screensize.y), Color(255,0,0))
 
+func _process(delta):
+	if(Input.is_action_just_pressed("ui_mouse_left")):
+		for obj in allObjects:
+			if obj.isHovered():
+				selectObject(obj)
 
-func add_new_object(new_object, pos_x, pos_y, type):
+func add_new_object(new_instance, pos_x, pos_y, type):
 	if(cell_exists(pos_x,pos_y)):
 		if(cell_is_empty(pos_x,pos_y)):
-			var new_instance = new_object.instance();
 			new_instance.position = Vector2(pos_x * tile_size.x + half_tile_size.x, pos_y * tile_size.y + half_tile_size.y);
 			grid[pos_x][pos_y] = type;
 			call_deferred("add_child", new_instance);
 			new_instance.grid_pos_x = pos_x;
 			new_instance.grid_pos_y = pos_y;
+
+func selectObject(object):
+	for obj in allObjects:
+		obj.SELECTED = object == obj
 
 func cell_is_empty(pos_x, pos_y):
 	if(grid[pos_x][pos_y] == null):
