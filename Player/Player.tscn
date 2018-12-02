@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/player_1.png" type="Texture" id=2]
 [ext_resource path="res://Player/player_2.png" type="Texture" id=3]
+[ext_resource path="res://Player/HoldKey.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -18,7 +19,7 @@ animations = [ {
 "speed": 2.0
 } ]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -38,6 +39,16 @@ shape = SubResource( 1 )
 
 frames = SubResource( 2 )
 animation = "default"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="HoldKey" parent="CanvasLayer" index="0" instance=ExtResource( 4 )]
 
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 
