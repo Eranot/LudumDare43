@@ -45,10 +45,10 @@ func _ready():
 	add_new_object(slime, 1, 2, ENTITY_TYPES.SLIME, false, "one");
 	add_new_object(slime, 2, 2, ENTITY_TYPES.SLIME, false, "cross");
 	add_new_object(slime, 3, 2, ENTITY_TYPES.SLIME, false, "one");
-	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE);
-	add_new_object(obstacle, 3, 4, ENTITY_TYPES.OBSTACLE);
-	add_new_object(obstacle, 3, 5, ENTITY_TYPES.OBSTACLE);
-	add_new_object(obstacle, 4, 4, ENTITY_TYPES.OBSTACLE);
+	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 3, 4, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 3, 5, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 4, 4, ENTITY_TYPES.OBSTACLE, null, null, false);
 	
 
 func _draw():
@@ -88,7 +88,7 @@ func setup_arrow():
 			selected = null
 			arrow.position = Vector2(-64, -64)
 
-func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false, slime_explosion_type = "one"):
+func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false, slime_explosion_type = "one", destructible = false):
 	if(cell_exists(pos_x,pos_y)):
 		if(cell_is_empty(pos_x,pos_y)):
 			var new_instance = new_object.instance()
@@ -102,7 +102,7 @@ func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false, sli
 				allObjects.append(new_instance)
 			elif(type == ENTITY_TYPES.OBSTACLE):
 				allObstacles.append([new_instance, Vector2(pos_x, pos_y)])
-			
+				new_instance.destructible = destructible;
 			if(type == ENTITY_TYPES.SLIME):
 				new_instance.explosion_type = slime_explosion_type
 				
