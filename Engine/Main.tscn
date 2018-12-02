@@ -130,6 +130,9 @@ Arrow = ExtResource( 8 )
 [node name="Door" parent="." index="3" instance=ExtResource( 9 )]
 
 position = Vector2( 546.748, 290.748 )
+new_pos_x = 15
+new_pos_y = 7
+destroy_slime = true
 
 [connection signal="pressed" from="HUD/PanelRestart/Button" to="HUD/PanelRestart" method="_on_Button_pressed"]
 
