@@ -46,8 +46,12 @@ func _draw():
 func _process(delta):
 	if(Input.is_action_just_pressed("ui_mouse_left")):
 		for obj in allObjects:
-			if obj.isHovered():
-				selectObject(obj)
+			if(weakref(obj).get_ref()):
+				if obj.isHovered():
+					selectObject(obj)
+			else:
+				allObjects.erase(obj)
+			
 
 func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false):
 	if(cell_exists(pos_x,pos_y)):
