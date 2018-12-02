@@ -12,9 +12,13 @@ var tile_size;
 var grid_pos_x;
 var grid_pos_y;
 
+var hold_key;
+
 func _ready():
 	tile_size = get_parent().tile_size;
 	$AnimatedSprite.play("default");
+	
+	hold_key = false;
 
 func _physics_process(delta):
 	
