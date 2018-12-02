@@ -9,6 +9,7 @@ var node_grid;
 const OBJ_TYPE = "EXPLOSION";
 
 func _ready():
+	z_index = 5;
 	node_grid = $"/root/Main/Grid";
 	
 	if(node_grid.cell_exists(grid_pos_x, grid_pos_y)):
