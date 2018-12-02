@@ -28,17 +28,12 @@ func _ready():
 		for y in range(grid_size.y):
 			grid[x].append(null);
 	
-	var _player = player.instance()
-	var _slime = slime.instance()
-	
-	add_new_object(_player, 1, 1, ENTITY_TYPES.PLAYER);
-	add_new_object(_slime, 1, 2, ENTITY_TYPES.PLAYER);
-	add_new_object(obstacle.instance(), 3, 3, ENTITY_TYPES.OBSTACLE);
-	
-	allObjects.append(_player)
-	allObjects.append(_slime)
-	
-	selectObject(_player)
+	add_new_object(player, 1, 1, ENTITY_TYPES.PLAYER, true);
+	add_new_object(slime, 1, 2, ENTITY_TYPES.PLAYER);
+	add_new_object(slime, 2, 2, ENTITY_TYPES.PLAYER);
+	add_new_object(slime, 3, 2, ENTITY_TYPES.PLAYER);
+	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE);
+
 
 
 func _draw():
@@ -54,14 +49,19 @@ func _process(delta):
 			if obj.isHovered():
 				selectObject(obj)
 
-func add_new_object(new_instance, pos_x, pos_y, type):
+func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false):
 	if(cell_exists(pos_x,pos_y)):
 		if(cell_is_empty(pos_x,pos_y)):
+			var new_instance = new_object.instance()
 			new_instance.position = Vector2(pos_x * tile_size.x + half_tile_size.x, pos_y * tile_size.y + half_tile_size.y);
 			grid[pos_x][pos_y] = type;
 			call_deferred("add_child", new_instance);
 			new_instance.grid_pos_x = pos_x;
 			new_instance.grid_pos_y = pos_y;
+			if(type == ENTITY_TYPES.PLAYER):
+				allObjects.append(new_instance)
+			if(startAsSelected):
+				selectObject(new_instance)
 
 func selectObject(object):
 	for obj in allObjects:
