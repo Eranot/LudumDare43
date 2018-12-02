@@ -21,6 +21,7 @@ enum ENTITY_TYPES{
 
 var arrow = null
 var allObjects = []
+var allObstacles = []
 var selected = null
 
 func _ready():
@@ -41,7 +42,9 @@ func _ready():
 	add_new_object(slime, 2, 2, ENTITY_TYPES.PLAYER);
 	add_new_object(slime, 3, 2, ENTITY_TYPES.PLAYER);
 	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE);
-	
+	add_new_object(obstacle, 3, 4, ENTITY_TYPES.OBSTACLE);
+	add_new_object(obstacle, 3, 5, ENTITY_TYPES.OBSTACLE);
+	add_new_object(obstacle, 4, 4, ENTITY_TYPES.OBSTACLE);
 	
 
 func _draw():
@@ -65,6 +68,13 @@ func _process(delta):
 		arrow.position = Vector2(selected.position.x, selected.position.y - tile_size.y + 10)
 	else:
 		arrow.position = Vector2(-64, -64)
+		
+	for obj in allObstacles:
+		if(weakref(obj[0]).get_ref()):
+			obj[0].set_sprite(grid[obj[1].x][obj[1].y+1] == ENTITY_TYPES.OBSTACLE)
+		else:
+			allObstacles.erase(obj)
+		
 
 func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false):
 	if(cell_exists(pos_x,pos_y)):
@@ -77,6 +87,9 @@ func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false):
 			new_instance.grid_pos_y = pos_y;
 			if(type == ENTITY_TYPES.PLAYER):
 				allObjects.append(new_instance)
+			elif(type == ENTITY_TYPES.OBSTACLE):
+				allObstacles.append([new_instance, Vector2(pos_x, pos_y)])
+				
 			if(startAsSelected):
 				selectObject(new_instance)
 
