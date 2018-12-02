@@ -2,7 +2,7 @@ extends Area2D;
 
 var direction = Vector2();
 
-const OBJ_TYPE = "PLAYER";
+const OBJ_TYPE = "SLIME";
 
 var SELECTED = false;
 var HOVERED = false;
@@ -82,6 +82,5 @@ func isHovered():
 	return HOVERED
 
 func _on_Slime_area_entered(area):
-	#print(area is )
-	#self_destroy();
-	pass
+	if(area.OBJ_TYPE == "EXPLOSION"):
+		self_destroy();
