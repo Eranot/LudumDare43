@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
 
-[node name="Obstacle" type="Area2D" index="0"]
+[node name="Obstacle" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -18,7 +18,8 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-destructible = false
+_sections_unfolded = [ "Collision" ]
+destructible = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

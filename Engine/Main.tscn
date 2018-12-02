@@ -5,7 +5,7 @@
 [ext_resource path="res://Player/Slime.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Obstacles/Obstacle.tscn" type="PackedScene" id=4]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 [node name="Grid" type="TileMap" parent="." index="0"]
 
