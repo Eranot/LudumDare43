@@ -15,6 +15,11 @@ func _ready():
 	node_grid = $"/root/Main/Grid";
 
 func _on_Obstacle_area_entered(area):
+	#node_grid.grid[grid_pos_x][grid_pos_y] = null;
+	#queue_free();
+	pass
+
+func self_destroy():
 	node_grid.grid[grid_pos_x][grid_pos_y] = null;
 	queue_free();
 

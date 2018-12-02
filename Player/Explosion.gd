@@ -19,7 +19,10 @@ func _ready():
 
 func _physics_process(delta):
 	if(timer_destroy >= 20):
+		node_grid.destroy(grid_pos_x, grid_pos_y)
 		queue_free();
 	
 	timer_destroy += 1;
 
+func self_destroy():
+	pass

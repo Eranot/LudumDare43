@@ -5,6 +5,7 @@ var half_tile_size = self.cell_size / 2;
 
 var grid_size = Vector2(10,10);
 var grid = [];
+var gridObjects = []
 
 var screensize;
 
@@ -15,6 +16,7 @@ export (PackedScene) var Arrow;
 
 enum ENTITY_TYPES{
 	PLAYER,
+	SLIME,
 	OBSTACLE,
 	COLLECTIBLE
 }
@@ -29,8 +31,10 @@ func _ready():
 	
 	for x in range(grid_size.x):
 		grid.append([]);
+		gridObjects.append([])
 		for y in range(grid_size.y):
 			grid[x].append(null);
+			gridObjects[x].append(null);
 	
 	arrow = Arrow.instance()
 	arrow.position = Vector2(-64, -64)
@@ -38,9 +42,9 @@ func _ready():
 	call_deferred("add_child", arrow);
 	
 	add_new_object(player, 1, 1, ENTITY_TYPES.PLAYER, true);
-	add_new_object(slime, 1, 2, ENTITY_TYPES.PLAYER);
-	add_new_object(slime, 2, 2, ENTITY_TYPES.PLAYER);
-	add_new_object(slime, 3, 2, ENTITY_TYPES.PLAYER);
+	add_new_object(slime, 1, 2, ENTITY_TYPES.SLIME, false, "one");
+	add_new_object(slime, 2, 2, ENTITY_TYPES.SLIME, false, "cross");
+	add_new_object(slime, 3, 2, ENTITY_TYPES.SLIME, false, "one");
 	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE);
 	add_new_object(obstacle, 3, 4, ENTITY_TYPES.OBSTACLE);
 	add_new_object(obstacle, 3, 5, ENTITY_TYPES.OBSTACLE);
@@ -58,37 +62,47 @@ func _draw():
 func _process(delta):
 	if(Input.is_action_just_pressed("ui_mouse_left")):
 		for obj in allObjects:
-			if(weakref(obj).get_ref()):
+			var r = weakref(obj)
+			if(r.get_ref()):
 				if obj.isHovered():
 					selectObject(obj)
 			else:
 				allObjects.erase(obj)
-	
-	if(weakref(selected).get_ref()):
-		arrow.position = Vector2(selected.position.x, selected.position.y - tile_size.y + 10)
-	else:
-		arrow.position = Vector2(-64, -64)
 		
 	for obj in allObstacles:
 		if(weakref(obj[0]).get_ref()):
 			obj[0].set_sprite(grid[obj[1].x][obj[1].y+1] == ENTITY_TYPES.OBSTACLE)
 		else:
 			allObstacles.erase(obj)
-		
+	
+	setup_arrow()
 
-func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false):
+func setup_arrow():
+	if(selected != null):
+		var r = weakref(selected)
+		if(r.get_ref()):
+			arrow.position = Vector2(r.get_ref().position.x, r.get_ref().position.y - tile_size.y + 10)
+		else:
+			selected = null
+			arrow.position = Vector2(-64, -64)
+
+func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false, slime_explosion_type = "one"):
 	if(cell_exists(pos_x,pos_y)):
 		if(cell_is_empty(pos_x,pos_y)):
 			var new_instance = new_object.instance()
 			new_instance.position = Vector2(pos_x * tile_size.x + half_tile_size.x, pos_y * tile_size.y + half_tile_size.y);
 			grid[pos_x][pos_y] = type;
+			gridObjects[pos_x][pos_y] = new_instance;
 			call_deferred("add_child", new_instance);
 			new_instance.grid_pos_x = pos_x;
 			new_instance.grid_pos_y = pos_y;
-			if(type == ENTITY_TYPES.PLAYER):
+			if(type == ENTITY_TYPES.PLAYER or type == ENTITY_TYPES.SLIME):
 				allObjects.append(new_instance)
 			elif(type == ENTITY_TYPES.OBSTACLE):
 				allObstacles.append([new_instance, Vector2(pos_x, pos_y)])
+			
+			if(type == ENTITY_TYPES.SLIME):
+				new_instance.explosion_type = slime_explosion_type
 				
 			if(startAsSelected):
 				selectObject(new_instance)
@@ -114,3 +128,10 @@ func cell_exists(pos_x, pos_y):
 		return true;
 	else:
 		return false;
+		
+func destroy(x, y):
+	if(gridObjects[x][y] != null):
+		var o = weakref(gridObjects[x][y])
+		if(o.get_ref()):
+			if(gridObjects[x][y].has_method("self_destroy")):
+				gridObjects[x][y].self_destroy()

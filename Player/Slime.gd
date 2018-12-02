@@ -20,7 +20,6 @@ func _ready():
 
 func _physics_process(delta):
 	
-			
 	direction = dir.CENTER;
 	if(SELECTED):
 		if(Input.is_action_just_pressed("ui_select")):
@@ -65,10 +64,13 @@ func move_player():
 			position.y += direction.y * tile_size.y;
 
 func self_destroy():
-	Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
-	get_parent().grid[grid_pos_x][grid_pos_y] = null;
-	queue_free();
-	
+	if(explosion_type == "cross"):
+		Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
+		get_parent().grid[grid_pos_x][grid_pos_y] = null;
+		queue_free();
+	elif(explosion_type == "one"):
+		Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
+
 
 func _on_Slime_mouse_entered():
 	HOVERED = true;
@@ -80,4 +82,6 @@ func isHovered():
 	return HOVERED
 
 func _on_Slime_area_entered(area):
-	self_destroy();
+	#print(area is )
+	#self_destroy();
+	pass
