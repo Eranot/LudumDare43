@@ -16,7 +16,10 @@ var explosion_type = "cross";
 
 func _ready():
 	tile_size = get_parent().tile_size;
-	$AnimatedSprite.play("default");
+	if(explosion_type == "cross"):
+		$AnimatedSprite.play("pink");
+	elif(explosion_type == "one"):
+		$AnimatedSprite.play("green");
 
 func _physics_process(delta):
 	
@@ -88,4 +91,4 @@ func isHovered():
 
 func _on_Slime_area_entered(area):
 	if(area.OBJ_TYPE == "EXPLOSION"):
-		self_destroy();
+		die();

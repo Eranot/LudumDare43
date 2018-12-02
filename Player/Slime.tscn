@@ -1,12 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player/Slime.gd" type="Script" id=1]
-[ext_resource path="res://Player/Slimes/slime_verde_anim1.png" type="Texture" id=2]
-[ext_resource path="res://Player/Slimes/slime_verde_anim2.png" type="Texture" id=3]
-[ext_resource path="res://Player/Slimes/slime_verde_anim3.png" type="Texture" id=4]
-[ext_resource path="res://Player/Slimes/slime_verde_anim4.png" type="Texture" id=5]
-[ext_resource path="res://Player/Slimes/slime_verde_anim5.png" type="Texture" id=6]
-[ext_resource path="res://Player/Slimes/slime_verde_anim6.png" type="Texture" id=7]
+[ext_resource path="res://Player/Slimes/slime_pink_anim1.png" type="Texture" id=2]
+[ext_resource path="res://Player/Slimes/slime_pink_anim2.png" type="Texture" id=3]
+[ext_resource path="res://Player/Slimes/slime_pink_anim3.png" type="Texture" id=4]
+[ext_resource path="res://Player/Slimes/slime_pink_anim4.png" type="Texture" id=5]
+[ext_resource path="res://Player/Slimes/slime_pink_anim5.png" type="Texture" id=6]
+[ext_resource path="res://Player/Slimes/slime_pink_anim6.png" type="Texture" id=7]
+[ext_resource path="res://Player/Slimes/slime_verde_anim1.png" type="Texture" id=8]
+[ext_resource path="res://Player/Slimes/slime_verde_anim2.png" type="Texture" id=9]
+[ext_resource path="res://Player/Slimes/slime_verde_anim3.png" type="Texture" id=10]
+[ext_resource path="res://Player/Slimes/slime_verde_anim4.png" type="Texture" id=11]
+[ext_resource path="res://Player/Slimes/slime_verde_anim5.png" type="Texture" id=12]
+[ext_resource path="res://Player/Slimes/slime_verde_anim6.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -18,8 +24,13 @@ extents = Vector2( 30, 30 )
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "default",
-"speed": 4.99
+"name": "pink",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "green",
+"speed": 5.0
 } ]
 
 [node name="Slime" type="Area2D"]
@@ -41,7 +52,8 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
 frames = SubResource( 2 )
-animation = "default"
+animation = "green"
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [connection signal="area_entered" from="." to="." method="_on_Slime_area_entered"]
 
