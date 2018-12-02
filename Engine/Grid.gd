@@ -11,6 +11,7 @@ var screensize;
 export (PackedScene) var player;
 export (PackedScene) var slime;
 export (PackedScene) var obstacle;
+export (PackedScene) var Arrow;
 
 enum ENTITY_TYPES{
 	PLAYER,
@@ -18,7 +19,9 @@ enum ENTITY_TYPES{
 	COLLECTIBLE
 }
 
+var arrow = null
 var allObjects = []
+var selected = null
 
 func _ready():
 	screensize = get_viewport_rect().size;
@@ -28,13 +31,18 @@ func _ready():
 		for y in range(grid_size.y):
 			grid[x].append(null);
 	
+	arrow = Arrow.instance()
+	arrow.position = Vector2(-64, -64)
+	arrow.z_index = 10
+	call_deferred("add_child", arrow);
+	
 	add_new_object(player, 1, 1, ENTITY_TYPES.PLAYER, true);
 	add_new_object(slime, 1, 2, ENTITY_TYPES.PLAYER);
 	add_new_object(slime, 2, 2, ENTITY_TYPES.PLAYER);
 	add_new_object(slime, 3, 2, ENTITY_TYPES.PLAYER);
 	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE);
-
-
+	
+	
 
 func _draw():
 	for x in range(grid_size.x):
@@ -42,6 +50,7 @@ func _draw():
 	
 	for y in range(grid_size.y):
 		draw_line(Vector2(y * tile_size.y, 0), Vector2(y * tile_size.y, screensize.y), Color(255,0,0))
+		
 
 func _process(delta):
 	if(Input.is_action_just_pressed("ui_mouse_left")):
@@ -51,7 +60,11 @@ func _process(delta):
 					selectObject(obj)
 			else:
 				allObjects.erase(obj)
-			
+	
+	if(weakref(selected).get_ref()):
+		arrow.position = Vector2(selected.position.x, selected.position.y - tile_size.y + 10)
+	else:
+		arrow.position = Vector2(-64, -64)
 
 func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false):
 	if(cell_exists(pos_x,pos_y)):
@@ -69,9 +82,11 @@ func add_new_object(new_object, pos_x, pos_y, type, startAsSelected = false):
 
 func selectObject(object):
 	for obj in allObjects:
-		
 		if(weakref(obj).get_ref()):
 			obj.SELECTED = object == obj
+			if(obj.SELECTED):
+				selected = obj
+				
 		else:
 			allObjects.erase(obj)
 
