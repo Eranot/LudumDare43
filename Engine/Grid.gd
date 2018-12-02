@@ -60,7 +60,7 @@ func _draw():
 		
 
 func _process(delta):
-	if(Input.is_action_just_pressed("ui_mouse_left")):
+	if(Input.is_action_just_pressed("ui_mouse_left") and MoveControl.canMove):
 		for obj in allObjects:
 			var r = weakref(obj)
 			if(r.get_ref()):
@@ -68,6 +68,8 @@ func _process(delta):
 					selectObject(obj)
 			else:
 				allObjects.erase(obj)
+	elif(Input.is_action_just_pressed("ui_mouse_left") and !MoveControl.canMove):
+		print("n deu")
 		
 	for obj in allObstacles:
 		if(weakref(obj[0]).get_ref()):

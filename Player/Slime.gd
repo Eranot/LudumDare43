@@ -68,8 +68,8 @@ func move_player():
 
 func self_destroy():
 	if(explosion_type == "cross"):
-		Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
-		die()
+		MoveControl.canMove = false
+		Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size, self);
 	elif(explosion_type == "one"):
 		MoveControl.canMove = false
 		Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size, self);
