@@ -12,10 +12,10 @@ func _ready():
 	z_index = 5;
 	node_grid = $"/root/Main/Grid";
 	
-	if(node_grid.cell_exists(grid_pos_x, grid_pos_y)):
-		if(!node_grid.cell_is_empty(grid_pos_x, grid_pos_y)):
-			if(node_grid.grid[grid_pos_x][grid_pos_y] == node_grid.ENTITY_TYPES.OBSTACLE):
-				node_grid.grid[grid_pos_x][grid_pos_y] = null;
+	#if(node_grid.cell_exists(grid_pos_x, grid_pos_y)):
+		#if(!node_grid.cell_is_empty(grid_pos_x, grid_pos_y)):
+			#if(node_grid.grid[grid_pos_x][grid_pos_y] == node_grid.ENTITY_TYPES.OBSTACLE):
+				#node_grid.grid[grid_pos_x][grid_pos_y] = null;
 
 func _physics_process(delta):
 	if(timer_destroy >= 20):

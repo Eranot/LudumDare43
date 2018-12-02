@@ -136,6 +136,9 @@ func destroy(x, y):
 		var o = weakref(gridObjects[x][y])
 		if(o.get_ref()):
 			if(gridObjects[x][y].has_method("self_destroy")):
-				gridObjects[x][y].self_destroy()
+				if(gridObjects[x][y].OBJ_TYPE == "OBSTACLE" && gridObjects[x][y].destructible == false):
+					pass
+				else:
+					gridObjects[x][y].self_destroy()
 		else:
 			gridObjects[x][y] = null
