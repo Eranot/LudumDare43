@@ -41,15 +41,39 @@ func _ready():
 	arrow.z_index = 10
 	call_deferred("add_child", arrow);
 	
-	add_new_object(player, 1, 1, ENTITY_TYPES.PLAYER, true);
-	add_new_object(slime, 1, 2, ENTITY_TYPES.SLIME, false, "one");
-	add_new_object(slime, 2, 2, ENTITY_TYPES.SLIME, false, "cross");
-	add_new_object(slime, 3, 2, ENTITY_TYPES.SLIME, false, "one");
-	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE, null, null, true);
-	add_new_object(obstacle, 3, 4, ENTITY_TYPES.OBSTACLE, null, null, true);
-	add_new_object(obstacle, 3, 5, ENTITY_TYPES.OBSTACLE, null, null, false);
-	add_new_object(obstacle, 4, 4, ENTITY_TYPES.OBSTACLE, null, null, false);
+	# add_new_object(player, 3, 5, ENTITY_TYPES.PLAYER, true); #player
+	# add_new_object(slime, 1, 2, ENTITY_TYPES.SLIME, false, "one"); # slime one
+	# add_new_object(slime, 2, 2, ENTITY_TYPES.SLIME, false, "cross"); #slime cross
+	# add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE, null, null, true); #parede quebrada
+	# add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE, null, null, false); #parede normal
 	
+	
+	add_new_object(player, 3, 5, ENTITY_TYPES.PLAYER, true);
+	add_new_object(slime, 3, 4, ENTITY_TYPES.SLIME, false, "one");
+	
+	#external
+	draw_wall_line(1, 2, 7, false)
+	draw_wall_line(6, 3, 7, false)
+	
+	draw_wall_column(7, 2, 6, false)
+	draw_wall_column(2, 2, 6, false)
+	
+	#internal
+	draw_wall_column(4, 3, 5, false)
+	draw_wall_line(3, 5, 6, false)
+	
+	#broken
+	draw_wall_column(5, 2, 2, true)
+	
+
+func draw_wall_column(x, y1, y2, broken):
+	for y in range(y1, y2+1):
+		add_new_object(obstacle, x, y, ENTITY_TYPES.OBSTACLE, null, null, broken);
+
+
+func draw_wall_line(y, x1, x2, broken):
+	for x in range(x1, x2+1):
+		add_new_object(obstacle, x, y, ENTITY_TYPES.OBSTACLE, null, null, broken);
 
 func _draw():
 	for x in range(grid_size.x):
