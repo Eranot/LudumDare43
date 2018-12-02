@@ -90,4 +90,4 @@ func isHovered():
 
 func _on_Slime_area_entered(area):
 	if(area.OBJ_TYPE == "EXPLOSION"):
-		self_destroy();
+		die();

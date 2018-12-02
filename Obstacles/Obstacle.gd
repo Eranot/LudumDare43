@@ -5,7 +5,7 @@ var grid_pos_y;
 
 const OBJ_TYPE = "OBSTACLE";
 
-export (bool) var destructible = true;
+var destructible = true;
 var node_grid;
 
 var wall_up = preload("res://Obstacles/wall_up_crackedv2.png")

@@ -24,7 +24,7 @@
 0/shapes = [  ]
 _sections_unfolded = [ "0" ]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 [node name="Camera" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -33,6 +33,7 @@ current = true
 
 [node name="HUD" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
