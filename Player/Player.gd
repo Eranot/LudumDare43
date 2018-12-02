@@ -19,7 +19,7 @@ func _ready():
 func _physics_process(delta):
 	
 	direction = dir.CENTER;
-	if(SELECTED):
+	if(SELECTED && MoveControl.canMove):
 		if(Input.is_action_just_pressed("ui_up")):
 			direction = dir.UP;
 		if(Input.is_action_just_pressed("ui_down")):

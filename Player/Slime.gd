@@ -21,7 +21,7 @@ func _ready():
 func _physics_process(delta):
 	
 	direction = dir.CENTER;
-	if(SELECTED):
+	if(SELECTED && MoveControl.canMove):
 		if(Input.is_action_just_pressed("ui_select")):
 			self_destroy();
 		
@@ -68,6 +68,7 @@ func self_destroy():
 		Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
 		die()
 	elif(explosion_type == "one"):
+		MoveControl.canMove = false
 		Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size, self);
 		
 
