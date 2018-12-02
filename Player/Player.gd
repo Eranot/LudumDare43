@@ -70,8 +70,7 @@ func isHovered():
 	return HOVERED
 
 func _on_Player_area_entered(area):
-	get_parent().grid[grid_pos_x][grid_pos_y] = null;
-	
-	$"/root/Main/HUD/PanelRestart".visible = true;
-	
-	queue_free();
+	if(area.OBJ_TYPE == "EXPLOSION"):
+		get_parent().grid[grid_pos_x][grid_pos_y] = null;
+		$"/root/Main/HUD/PanelRestart".visible = true;
+		queue_free();
