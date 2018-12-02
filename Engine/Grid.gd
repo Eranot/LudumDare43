@@ -43,7 +43,7 @@ func _ready():
 	
 	add_new_object(player, 1, 1, ENTITY_TYPES.PLAYER, true);
 	add_new_object(slime, 1, 2, ENTITY_TYPES.SLIME, false, "one");
-	add_new_object(slime, 2, 2, ENTITY_TYPES.SLIME, false, "one");
+	add_new_object(slime, 2, 2, ENTITY_TYPES.SLIME, false, "cross");
 	add_new_object(slime, 3, 2, ENTITY_TYPES.SLIME, false, "one");
 	add_new_object(obstacle, 3, 3, ENTITY_TYPES.OBSTACLE);
 	add_new_object(obstacle, 3, 4, ENTITY_TYPES.OBSTACLE);

@@ -24,7 +24,7 @@
 0/shapes = [  ]
 _sections_unfolded = [ "0" ]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 [node name="Camera" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -184,7 +184,7 @@ max_lines_visible = -1
 [node name="CommandsTimer" type="Timer" parent="HUD/PanelCommands" index="3"]
 
 process_mode = 1
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 

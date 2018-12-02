@@ -16,7 +16,10 @@ var explosion_type = "cross";
 
 func _ready():
 	tile_size = get_parent().tile_size;
-	$AnimatedSprite.play("default");
+	if(explosion_type == "cross"):
+		$AnimatedSprite.play("pink");
+	elif(explosion_type == "one"):
+		$AnimatedSprite.play("green");
 
 func _physics_process(delta):
 	
