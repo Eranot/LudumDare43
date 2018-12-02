@@ -66,10 +66,14 @@ func move_player():
 func self_destroy():
 	if(explosion_type == "cross"):
 		Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
-		get_parent().grid[grid_pos_x][grid_pos_y] = null;
-		queue_free();
+		die()
 	elif(explosion_type == "one"):
-		Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
+		Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size, self);
+		
+
+func die():
+	get_parent().grid[grid_pos_x][grid_pos_y] = null;
+	queue_free();
 
 
 func _on_Slime_mouse_entered():

@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -26,7 +26,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
-modulate = Color( 0.886719, 0.0554199, 0.0554199, 1 )
+modulate = Color( 0.886719, 0.0554199, 0.0554199, 0.4 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
