@@ -3,7 +3,7 @@ extends TileMap
 var tile_size = self.cell_size;
 var half_tile_size = self.cell_size / 2;
 
-var grid_size = Vector2(10,10);
+var grid_size = Vector2(20,10);
 var grid = [];
 var gridObjects = []
 
