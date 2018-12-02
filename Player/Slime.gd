@@ -1,4 +1,4 @@
-extends KinematicBody2D;
+extends Area2D;
 
 var direction = Vector2();
 
@@ -66,15 +66,18 @@ func move_player():
 
 func self_destroy():
 	Explosions.explode(explosion_type, grid_pos_x, grid_pos_y, tile_size);
+	get_parent().grid[grid_pos_x][grid_pos_y] = null;
 	queue_free();
 	
 
 func _on_Slime_mouse_entered():
 	HOVERED = true;
 
-
 func _on_Slime_mouse_exited():
 	HOVERED = false;
 
 func isHovered():
 	return HOVERED
+
+func _on_Slime_area_entered(area):
+	self_destroy();

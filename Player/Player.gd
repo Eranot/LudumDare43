@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 var direction = Vector2();
 
@@ -68,3 +68,7 @@ func _on_Player_mouse_exited():
 
 func isHovered():
 	return HOVERED
+
+func _on_Player_area_entered(area):
+	get_parent().grid[grid_pos_x][grid_pos_y] = null;
+	queue_free();

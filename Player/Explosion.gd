@@ -21,3 +21,4 @@ func _physics_process(delta):
 		queue_free();
 	
 	timer_destroy += 1;
+
