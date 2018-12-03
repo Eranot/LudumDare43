@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Engine/Another Flight.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Engine/StartButton.gd" type="Script" id=2]
@@ -63,7 +63,15 @@ use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Menu" type="CanvasLayer" index="0"]
+[sub_resource type="DynamicFont" id=8]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Menu" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -151,8 +159,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Commands" type="Panel" parent="." index="3"]
 
-editor/display_folded = true
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -291,6 +297,29 @@ text = "X"
 flat = false
 align = 1
 script = ExtResource( 6 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Label5" type="Label" parent="Commands" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 320.0
+margin_top = 256.0
+margin_right = 449.0
+margin_bottom = 282.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+text = "R: Restart the game"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="pressed" from="StartButton" to="StartButton" method="_on_StartButton_pressed"]

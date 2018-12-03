@@ -23,6 +23,10 @@ func _ready():
 func _physics_process(delta):
 	
 	direction = dir.CENTER;
+	
+	if(Input.is_action_just_pressed("ui_reset")):
+		$"/root/Main/HUD/ConfirmRestart".visible = true;
+	
 	if(SELECTED && MoveControl.canMove):
 		if(Input.is_action_just_pressed("ui_up")):
 			direction = dir.UP;
