@@ -12,6 +12,8 @@ var tile_size;
 var grid_pos_x;
 var grid_pos_y;
 
+
+
 var explosion_type = "cross";
 
 func _ready():
@@ -77,6 +79,13 @@ func self_destroy():
 
 func die():
 	get_parent().grid[grid_pos_x][grid_pos_y] = null;
+	var explosion_obj = load("res://Player/Explosion.tscn").instance();
+	explosion_obj.position.x = position.x;
+	explosion_obj.position.y = position.y;
+	explosion_obj.grid_pos_x = grid_pos_x;
+	explosion_obj.grid_pos_y = grid_pos_y;
+	
+	get_parent().add_child(explosion_obj);
 	queue_free();
 
 
