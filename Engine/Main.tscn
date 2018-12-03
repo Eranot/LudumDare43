@@ -76,7 +76,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 0/shapes = [  ]
 _sections_unfolded = [ "0" ]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 editor/display_folded = true
 
