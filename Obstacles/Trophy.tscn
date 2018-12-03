@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Obstacles/Trophy.gd" type="Script" id=1]
-[ext_resource path="res://Obstacles/door.png" type="Texture" id=2]
+[ext_resource path="res://Obstacles/trophy_sprites/trophy1.png" type="Texture" id=2]
+[ext_resource path="res://Obstacles/trophy_sprites/trophy2.png" type="Texture" id=3]
+[ext_resource path="res://Obstacles/trophy_sprites/trophy3.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -11,13 +13,13 @@ extents = Vector2( 30, 30 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 3.0
 } ]
 
-[node name="Trophy" type="Area2D"]
+[node name="Trophy" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -36,6 +38,7 @@ shape = SubResource( 1 )
 
 frames = SubResource( 2 )
 animation = "default"
+playing = true
 
 [connection signal="area_entered" from="." to="." method="_on_Trophy_area_entered"]
 
