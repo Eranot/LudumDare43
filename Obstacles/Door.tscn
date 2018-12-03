@@ -1,14 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Obstacles/Door.gd" type="Script" id=1]
-[ext_resource path="res://Obstacles/door.png" type="Texture" id=2]
+[ext_resource path="res://Obstacles/door_sprites/door1.png" type="Texture" id=2]
+[ext_resource path="res://Obstacles/door_sprites/door2.png" type="Texture" id=3]
+[ext_resource path="res://Obstacles/door_sprites/door3.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
 
-[node name="Door" type="Area2D"]
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Door" type="Area2D" index="0"]
 
 position = Vector2( 32, 32 )
 input_pickable = true
@@ -29,9 +40,12 @@ need_key = null
 
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
-texture = ExtResource( 2 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 2
+playing = true
 
 [connection signal="area_entered" from="." to="." method="_on_Door_area_entered"]
 
