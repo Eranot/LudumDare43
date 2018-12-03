@@ -31,7 +31,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="Player" type="Area2D" index="0"]
+[node name="Player" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -65,7 +65,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 position = Vector2( 32, 32 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 3
+frame = 1
 playing = true
 script = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
