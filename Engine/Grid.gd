@@ -159,8 +159,8 @@ func _ready():
 	add_new_object(obstacle, 26, 4, ENTITY_TYPES.OBSTACLE, null, null, false);
 	
 	# ## SCENE SIX
-	add_new_object(slime, 24, 15, ENTITY_TYPES.SLIME, false, "one");
-	add_new_object(slime, 25, 15, ENTITY_TYPES.SLIME, false, "cross");
+	add_new_object(slime, 25, 15, ENTITY_TYPES.SLIME, false, "one");
+	add_new_object(slime, 24, 15, ENTITY_TYPES.SLIME, false, "cross");
 	add_new_object(Lady, 25, 13, ENTITY_TYPES.PLAYER);
 	
 	#external
