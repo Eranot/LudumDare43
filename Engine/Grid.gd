@@ -3,7 +3,7 @@ extends TileMap
 var tile_size = self.cell_size;
 var half_tile_size = self.cell_size / 2;
 
-var grid_size = Vector2(20,10);
+var grid_size = Vector2(60,60);
 var grid = [];
 var gridObjects = []
 
@@ -50,7 +50,7 @@ func _ready():
 	
 	
 	# ## SCENE ONE
-	add_new_object(player, 3, 5, ENTITY_TYPES.PLAYER, true);
+	add_new_object(player, 4, 16, ENTITY_TYPES.PLAYER, true);
 	add_new_object(slime, 3, 4, ENTITY_TYPES.SLIME, false, "one");
 	
 	add_new_object(Lady, 3, 2, ENTITY_TYPES.PLAYER);
@@ -89,6 +89,27 @@ func _ready():
 	add_new_object(obstacle, 16, 5, ENTITY_TYPES.OBSTACLE, null, null, false);
 	#add_new_object(obstacle, 16, 6, ENTITY_TYPES.OBSTACLE, null, null, false);
 	add_new_object(obstacle, 14, 6, ENTITY_TYPES.OBSTACLE, null, null, false);
+	
+	
+	# ## SCENE THREE
+	add_new_object(slime, 3, 16, ENTITY_TYPES.SLIME, false, "one");
+	add_new_object(slime, 3, 13, ENTITY_TYPES.SLIME, false, "one");
+	add_new_object(slime, 3, 14, ENTITY_TYPES.SLIME, false, "cross");
+	
+	#external
+	draw_wall_line(12, 2, 7, false);
+	draw_wall_line(17, 2, 7, false);
+	draw_wall_column(2, 13, 16, false);
+	draw_wall_column(7, 13, 16, false);
+	
+	#broken
+	add_new_object(obstacle, 4, 15, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 5, 16, ENTITY_TYPES.OBSTACLE, null, null, true);
+	
+	add_new_object(obstacle, 4, 13, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 4, 14, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 5, 15, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 6, 15, ENTITY_TYPES.OBSTACLE, null, null, false);
 	
 
 func draw_wall_column(x, y1, y2, broken):
