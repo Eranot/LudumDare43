@@ -50,7 +50,7 @@ func _ready():
 	
 	
 	# ## SCENE ONE
-	add_new_object(player, 4, 16, ENTITY_TYPES.PLAYER, true);
+	add_new_object(player, 2, 25, ENTITY_TYPES.PLAYER, true);
 	add_new_object(slime, 3, 4, ENTITY_TYPES.SLIME, false, "one");
 	
 	add_new_object(Lady, 3, 2, ENTITY_TYPES.PLAYER);
@@ -111,6 +111,111 @@ func _ready():
 	add_new_object(obstacle, 5, 15, ENTITY_TYPES.OBSTACLE, null, null, false);
 	add_new_object(obstacle, 6, 15, ENTITY_TYPES.OBSTACLE, null, null, false);
 	
+	# ## SCENE FOUR
+	add_new_object(slime, 13, 12, ENTITY_TYPES.SLIME, false, "one");
+	add_new_object(slime, 14, 12, ENTITY_TYPES.SLIME, false, "one");
+	add_new_object(slime, 14, 13, ENTITY_TYPES.SLIME, false, "cross");
+	
+	#external
+	draw_wall_line(11, 11, 17, false);
+	draw_wall_line(17, 11, 17, false);
+	draw_wall_column(11, 12, 16, false);
+	draw_wall_column(17, 12, 16, false);
+	
+	#broken
+	add_new_object(obstacle, 12, 12, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 12, 13, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 12, 15, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 13, 14, ENTITY_TYPES.OBSTACLE, null, null, true);
+	
+	add_new_object(obstacle, 15, 12, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 15, 13, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 16, 13, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 16, 14, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 16, 15, ENTITY_TYPES.OBSTACLE, null, null, true);
+	
+	add_new_object(obstacle, 13, 13, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 13, 15, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 14, 15, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 15, 15, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 15, 14, ENTITY_TYPES.OBSTACLE, null, null, false);
+	
+	# ## SCENE FIVE
+	add_new_object(slime, 24, 5, ENTITY_TYPES.SLIME, false, "one");
+	
+	#external
+	draw_wall_line(2, 23, 27, false);
+	draw_wall_line(6, 23, 27, false);
+	draw_wall_column(22, 2, 6, false);
+	draw_wall_column(27, 2, 6, false);
+	
+	#broken
+	add_new_object(obstacle, 25, 4, ENTITY_TYPES.OBSTACLE, null, null, true);
+	
+	add_new_object(obstacle, 23, 4, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 24, 4, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 24, 3, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 26, 3, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 26, 4, ENTITY_TYPES.OBSTACLE, null, null, false);
+	
+	# ## SCENE SIX
+	add_new_object(slime, 24, 15, ENTITY_TYPES.SLIME, false, "one");
+	add_new_object(slime, 25, 15, ENTITY_TYPES.SLIME, false, "cross");
+	add_new_object(Lady, 25, 13, ENTITY_TYPES.PLAYER);
+	
+	#external
+	draw_wall_line(12, 23, 27, false);
+	draw_wall_line(17, 23, 27, false);
+	draw_wall_column(22, 12, 17, false);
+	draw_wall_column(28, 12, 17, false);
+	
+	#broken
+	add_new_object(obstacle, 26, 14, ENTITY_TYPES.OBSTACLE, null, null, true);
+	
+	add_new_object(obstacle, 23, 16, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 24, 16, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 25, 16, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 23, 14, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 24, 14, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 26, 15, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 26, 13, ENTITY_TYPES.OBSTACLE, null, null, false);
+	
+	# ## SCENE SEVEN
+	add_new_object(slime, 1, 25, ENTITY_TYPES.SLIME, false, "cross");
+	add_new_object(slime, 5, 27, ENTITY_TYPES.SLIME, false, "one");
+	
+	#external
+	draw_wall_line(22, 1, 8, false);
+	draw_wall_line(28, 1, 8, false);
+	draw_wall_column(0, 22, 28, false);
+	draw_wall_column(9, 22, 28, false);
+	
+	#broken
+	add_new_object(obstacle, 5, 26, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 5, 24, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 6, 25, ENTITY_TYPES.OBSTACLE, null, null, true);
+	add_new_object(obstacle, 7, 25, ENTITY_TYPES.OBSTACLE, null, null, true);
+	
+	add_new_object(obstacle, 1, 26, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 2, 26, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 3, 26, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 4, 26, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 6, 26, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 7, 26, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 8, 26, ENTITY_TYPES.OBSTACLE, null, null, false);
+	#
+	add_new_object(obstacle, 1, 24, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 2, 24, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 4, 24, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 6, 24, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 7, 24, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 8, 24, ENTITY_TYPES.OBSTACLE, null, null, false);
+	#
+	add_new_object(obstacle, 3, 23, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 4, 23, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 6, 23, ENTITY_TYPES.OBSTACLE, null, null, false);
+
+
 
 func draw_wall_column(x, y1, y2, broken):
 	for y in range(y1, y2+1):
