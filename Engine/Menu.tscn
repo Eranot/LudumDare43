@@ -45,7 +45,7 @@ Panel/styles/panelf = null
 Panel/styles/panelnc = null
 _sections_unfolded = [ "Panel", "Panel/styles" ]
 
-[node name="Menu" type="CanvasLayer" index="0"]
+[node name="Menu" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )

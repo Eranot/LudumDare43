@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/player_1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Obstacles/key_sprites/key2.png" type="Texture" id=5]
 [ext_resource path="res://Obstacles/key_sprites/key3.png" type="Texture" id=6]
 [ext_resource path="res://Engine/HoldKey.gd" type="Script" id=7]
+[ext_resource path="res://themes/small_label_font.tres" type="DynamicFont" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -31,7 +32,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -65,10 +66,35 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 position = Vector2( 32, 32 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 1
+frame = 3
 playing = true
 script = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Label" type="Label" parent="CanvasLayer" index="1"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -193.0
+margin_top = -46.0
+margin_right = -9.0
+margin_bottom = -9.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 8 )
+text = "Spacebar = Explode
+R = Restart"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 
