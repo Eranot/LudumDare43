@@ -179,6 +179,7 @@ func _ready():
 	add_new_object(obstacle, 24, 14, ENTITY_TYPES.OBSTACLE, null, null, false);
 	add_new_object(obstacle, 26, 15, ENTITY_TYPES.OBSTACLE, null, null, false);
 	add_new_object(obstacle, 26, 13, ENTITY_TYPES.OBSTACLE, null, null, false);
+	add_new_object(obstacle, 27, 15, ENTITY_TYPES.OBSTACLE, null, null, false);
 	
 	# ## SCENE SEVEN
 	add_new_object(slime, 1, 25, ENTITY_TYPES.SLIME, false, "cross");
