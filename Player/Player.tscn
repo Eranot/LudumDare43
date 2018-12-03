@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/player_1.png" type="Texture" id=2]
 [ext_resource path="res://Player/player_2.png" type="Texture" id=3]
-[ext_resource path="res://Player/HoldKey.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Obstacles/key_sprites/key1.png" type="Texture" id=4]
+[ext_resource path="res://Obstacles/key_sprites/key2.png" type="Texture" id=5]
+[ext_resource path="res://Obstacles/key_sprites/key3.png" type="Texture" id=6]
+[ext_resource path="res://Engine/HoldKey.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -17,6 +20,15 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 2.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
 } ]
 
 [node name="Player" type="Area2D" index="0"]
@@ -48,7 +60,15 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="HoldKey" parent="CanvasLayer" index="0" instance=ExtResource( 4 )]
+[node name="HoldKey" type="AnimatedSprite" parent="CanvasLayer" index="0"]
+
+position = Vector2( 32, 32 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 3
+playing = true
+script = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 

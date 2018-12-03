@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Obstacles/Key.gd" type="Script" id=1]
-[ext_resource path="res://Obstacles/key.png" type="Texture" id=2]
+[ext_resource path="res://Obstacles/key_sprites/key1.png" type="Texture" id=2]
+[ext_resource path="res://Obstacles/key_sprites/key2.png" type="Texture" id=3]
+[ext_resource path="res://Obstacles/key_sprites/key3.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
 
 [node name="Key" type="Area2D"]
 
@@ -23,9 +34,12 @@ script = ExtResource( 1 )
 
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
-texture = ExtResource( 2 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
 
 [connection signal="area_entered" from="." to="." method="_on_Key_area_entered"]
 
