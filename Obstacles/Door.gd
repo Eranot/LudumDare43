@@ -20,6 +20,8 @@ func _on_Door_area_entered(area):
 	var node_grid = $"/root/Main/Grid";
 	if(area.OBJ_TYPE == "PLAYER"):
 		if(area.hold_key == true || need_key == false):
+			print(new_pos_x)
+			print(new_pos_y)
 			if(node_grid.cell_exists(new_pos_x,new_pos_y)):
 				if(node_grid.cell_is_empty(new_pos_x,new_pos_y)):
 					node_grid.grid[area.grid_pos_x][area.grid_pos_y] = null;
