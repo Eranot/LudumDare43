@@ -50,10 +50,10 @@ func _ready():
 	
 	
 	# ## SCENE ONE
-	add_new_object(player, 34, 6, ENTITY_TYPES.PLAYER, true);
+	add_new_object(player, 3, 5, ENTITY_TYPES.PLAYER, true);
 	add_new_object(slime, 3, 4, ENTITY_TYPES.SLIME, false, "one");
 	
-	add_new_object(Lady, 3, 2, ENTITY_TYPES.PLAYER);
+	#add_new_object(Lady, 3, 2, ENTITY_TYPES.PLAYER);
 	
 	#external
 	draw_wall_line(1, 2, 7, false);

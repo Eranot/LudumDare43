@@ -1,0 +1,63 @@
+[33m043bfe2[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{0}: commit (merge): i dont know
+[33m49ae952[m HEAD@{1}: commit: all scenes
+[33mde9d5a0[m HEAD@{2}: commit: scene seven
+[33mbafc444[m HEAD@{3}: commit: scene 3
+[33m1123bbc[m HEAD@{4}: pull: Fast-forward
+[33md57dde1[m HEAD@{5}: reset: moving to HEAD
+[33md57dde1[m HEAD@{6}: commit: trophy fix
+[33md8f524d[m HEAD@{7}: pull: Fast-forward
+[33m6b6fdc0[m HEAD@{8}: commit: Trphy
+[33mb75cbb1[m HEAD@{9}: reset: moving to origin/master
+[33mb75cbb1[m HEAD@{10}: reset: moving to HEAD
+[33mb75cbb1[m HEAD@{11}: pull: Fast-forward
+[33m6603fb8[m HEAD@{12}: commit: slime explosion effect
+[33mf2db185[m HEAD@{13}: pull: Fast-forward
+[33mcc2a428[m HEAD@{14}: commit: scene two
+[33m0c429ca[m HEAD@{15}: pull: Fast-forward
+[33m47ffe60[m HEAD@{16}: commit: restart shortcut
+[33md7476cc[m HEAD@{17}: commit: restart fix
+[33me67b277[m HEAD@{18}: commit: Victory screen
+[33ma0cce6e[m HEAD@{19}: commit: Start Menu
+[33m7e31f85[m HEAD@{20}: pull: Fast-forward
+[33mdf496db[m HEAD@{21}: commit: Player can hold a key
+[33m6a89748[m HEAD@{22}: commit: exemple
+[33m9d7a61f[m HEAD@{23}: commit: explosion fix
+[33mb90f324[m HEAD@{24}: commit: not cracked wall
+[33me098978[m HEAD@{25}: pull: Fast-forward
+[33m742146b[m HEAD@{26}: commit: slime death change
+[33m02b7c0c[m HEAD@{27}: commit: pink slime
+[33mc31a576[m HEAD@{28}: pull: Fast-forward
+[33mf631b7b[m HEAD@{29}: commit: Commands Panel
+[33me6ec9f7[m HEAD@{30}: commit: Teleport/Door fixed
+[33m77b1fa5[m HEAD@{31}: commit: Teleport and collision fixes
+[33m6e0603d[m HEAD@{32}: commit: Camera follow the player
+[33mb035864[m HEAD@{33}: pull: Fast-forward
+[33m71fef56[m HEAD@{34}: commit: Fix explosion z_index
+[33m22202bf[m HEAD@{35}: commit: ground tile
+[33mae2a598[m HEAD@{36}: commit: restart option when player dies
+[33mc9ab2ae[m HEAD@{37}: pull origin master: Fast-forward
+[33m4d4b50b[m HEAD@{38}: reset: moving to HEAD
+[33m4d4b50b[m HEAD@{39}: pull origin master: Fast-forward
+[33m08ef552[m HEAD@{40}: reset: moving to HEAD
+[33m08ef552[m HEAD@{41}: commit: Player and Slime dies on explosions
+[33me5308c8[m HEAD@{42}: pull origin master -f: Fast-forward
+[33m35f770a[m HEAD@{43}: pull origin master -f: Fast-forward
+[33mcd41100[m HEAD@{44}: reset: moving to HEAD
+[33mcd41100[m HEAD@{45}: pull origin master -f: Fast-forward
+[33m205af4e[m HEAD@{46}: reset: moving to HEAD
+[33m205af4e[m HEAD@{47}: pull: Fast-forward
+[33mdb62850[m HEAD@{48}: commit: select and deselect slime
+[33mf829251[m HEAD@{49}: commit: select and deselect player
+[33meb5e29d[m HEAD@{50}: commit: Player created and Player/Slime selection setup
+[33m749b5cc[m HEAD@{51}: commit: Player to Slime
+[33m0303c69[m HEAD@{52}: commit: Obstacles grid update
+[33m20c7a05[m HEAD@{53}: commit: Obstacles destruction on collision
+[33md7b8591[m HEAD@{54}: commit: Cross explosion fix
+[33m6ae8b96[m HEAD@{55}: commit: Cross explosion
+[33m4c3381a[m HEAD@{56}: commit: slime sprite and other things that doesn't work
+[33mabd09c5[m HEAD@{57}: commit: Fixed cell_exists error and explosions setup
+[33mce25410[m HEAD@{58}: commit: added func cell_exists and folders reorganization
+[33mda3d37c[m HEAD@{59}: commit: player checl for obstacles before move
+[33mb1f81df[m HEAD@{60}: commit: func add_new_object error fixed
+[33mbc62031[m HEAD@{61}: commit: func add_new_object error
+[33m8d9f9d1[m HEAD@{62}: commit (initial): First Commit / Player Grid Movement / Draw Grid

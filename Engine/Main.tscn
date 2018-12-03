@@ -69,7 +69,7 @@ extra_spacing_bottom = 4
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Resource", "Settings" ]
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=5]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -97,14 +97,14 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="Theme" id=10]
+[sub_resource type="Theme" id=6]
 
-Panel/styles/panel = SubResource( 9 )
+Panel/styles/panel = SubResource( 5 )
 Panel/styles/panelf = null
 Panel/styles/panelnc = null
 _sections_unfolded = [ "Panel", "Panel/styles" ]
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=7]
 
 size = 23
 use_mipmaps = false
@@ -143,6 +143,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="PanelRestart" type="Panel" parent="HUD" index="0"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -234,6 +235,8 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="ConfirmRestart" type="Panel" parent="HUD" index="1"]
 
+editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -247,7 +250,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-theme = SubResource( 10 )
+theme = SubResource( 6 )
 script = ExtResource( 5 )
 _sections_unfolded = [ "Theme" ]
 
@@ -266,7 +269,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 text = "Confirm Restart?"
 align = 1
 percent_visible = 1.0
@@ -366,8 +369,9 @@ need_key = false
 [node name="Door2" parent="." index="4" instance=ExtResource( 13 )]
 
 position = Vector2( 1056, 224 )
-new_pos_x = 15
-new_pos_y = 8
+new_pos_x = 4
+new_pos_y = 16
+destroy_slime = true
 need_key = true
 
 [node name="Key" parent="." index="5" instance=ExtResource( 14 )]
@@ -376,15 +380,23 @@ position = Vector2( 1056, 416 )
 
 [node name="Trophy" parent="." index="6" instance=ExtResource( 15 )]
 
-position = Vector2( 1120, 544 )
+position = Vector2( 1152, -256 )
 
 [node name="Door3" parent="." index="7" instance=ExtResource( 13 )]
 
 position = Vector2( 416, 1056 )
+new_pos_x = 14
+new_pos_y = 14
+destroy_slime = true
+need_key = false
 
 [node name="Door4" parent="." index="8" instance=ExtResource( 13 )]
 
 position = Vector2( 1056, 1056 )
+new_pos_x = 23
+new_pos_y = 5
+destroy_slime = true
+need_key = true
 
 [node name="Key2" parent="." index="9" instance=ExtResource( 14 )]
 
@@ -393,6 +405,8 @@ position = Vector2( 1056, 800 )
 [node name="Door5" parent="." index="10" instance=ExtResource( 13 )]
 
 position = Vector2( 1696, 352 )
+destroy_slime = true
+need_key = true
 
 [node name="Key" parent="Door5" index="2" instance=ExtResource( 14 )]
 
